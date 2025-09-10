@@ -2,7 +2,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
-import { BrowserRouter , Routes, Route } from "react-router-dom";
+import { HashRouter , Routes, Route } from "react-router-dom";
 import SecureUploads from "./SecureUploads";
 import FormsAccess from "./FormsAccess";
 import LiveMeetings from "./LiveMeetings";
@@ -10,7 +10,7 @@ import Gallery from "./Gallery";
 import SuccessStories from "./SuccessStories";
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter basename={import.meta.env.MODE === "production" ? "/FaithInLearning" : "/"}>
+    <HashRouter basename={import.meta.env.MODE === "production" ? "/FaithInLearning/" : "/"}>
      {/* <Router> */}
       <Routes>
         <Route path="/" element={<App />} />
@@ -22,7 +22,7 @@ createRoot(document.getElementById('root')).render(
 
       </Routes>
     {/* </Router> */}
-    </BrowserRouter>
+    </HashRouter>
     {/* <App /> */}
   </StrictMode>,
 )

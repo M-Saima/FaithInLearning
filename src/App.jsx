@@ -1,18 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import logo from './assets/Education.png';
-import carousel1 from './assets/images/a1.jpg';
-import carousel2 from './assets/images/a2.jpg';
-import carousel3 from './assets/images/a3.jpg';
-import carousel4 from './assets/images/a4.jpg';
-import carousel5 from './assets/images/a5.jpg';
+// import carousel1 from './assets/images/a1.jpg';
+// import carousel2 from './assets/images/a2.jpg';
+// import carousel3 from './assets/images/a3.jpg';
+// import carousel4 from './assets/images/a4.jpg';
+// import carousel5 from './assets/images/a5.jpg';
 import { FaHome,FaImages ,FaUserGraduate  } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Navbar from "./Navbar";
 import { FaCloudUploadAlt, FaFileAlt, FaVideo, FaBell, FaUsers, FaWpforms } from "react-icons/fa";
 
-const images = [carousel1, carousel2, carousel3, carousel4, carousel5];
-
+// const images = [carousel1, carousel2, carousel3, carousel4, carousel5];
+const images = Object.values(import.meta.glob('./assets/images/*.{jpg,jpeg,png}', { eager: true }))
+  .map((module) => module.default);
 function Carousel() {
   const [current, setCurrent] = useState(0);
   useEffect(() => {
@@ -32,6 +33,7 @@ function Carousel() {
           key={current}
           src={images[current]}
           alt="carousel"
+          style={{ width: "100%", height: "auto" }}
           initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6 }}
@@ -57,7 +59,7 @@ function Carousel() {
 }
 
 export default function App() {
-  const [visits, setVisits] = useState(0);
+  // const [visits, setVisits] = useState(0);
   const quotes = [
     "Education is the most powerful weapon which you can use to change the world. – Nelson Mandela",
     "The future belongs to those who believe in the beauty of their dreams. – Eleanor Roosevelt",
@@ -80,12 +82,12 @@ export default function App() {
   return () => clearInterval(interval);
 }, []);
 
-useEffect(() => {
-  let count = localStorage.getItem("visitCount");
-  count = count ? parseInt(count) + 1 : 1;
-  localStorage.setItem("visitCount", count);
-  setVisits(count);
-}, []);
+// useEffect(() => {
+//   let count = localStorage.getItem("visitCount");
+//   count = count ? parseInt(count) + 1 : 1;
+//   localStorage.setItem("visitCount", count);
+//   setVisits(count);
+// }, []);
 
 const [dateTime, setDateTime] = useState(new Date());
 
@@ -94,6 +96,7 @@ useEffect(() => {
   return () => clearInterval(timer);
 }, []);
   return (
+    
     <div className="dark min-h-screen flex flex-col justify-between  font-sans">
        <div className="flex-1">
       <Navbar />
@@ -175,8 +178,8 @@ useEffect(() => {
           >
          <Link to="/uploads" style={{ textDecoration: "none", color: "inherit" }}>
           <FaCloudUploadAlt className="card-icon" style={{ color: "#4e5ef7" }} />
-          <h3>Secure Uploads</h3>
-          <p>Upload confidential documents safely.</p>
+          <h3>Files</h3>
+          <p>Access to documents</p>
       </Link>
       </motion.div>
     {/* </div> */}
@@ -188,7 +191,7 @@ useEffect(() => {
         <Link to="/forms" style={{ textDecoration: "none", color: "inherit" }}>
           <FaFileAlt className="card-icon" style={{ color: "#8a4fff" }} />
           <h3>Forms</h3>
-          <p>Download and submit student & faculty forms.</p>
+          <p>View and share the student & faculty forms</p>
         </Link>
       {/* </div> */}
       </motion.div>
@@ -200,19 +203,18 @@ useEffect(() => {
         <Link to="/live-meetings" style={{ textDecoration: "none", color: "inherit" }}>
         <FaVideo className="card-icon" style={{ color: "#007bff" }} />
         <h3>Live Meetings</h3>
-        <p>Stay informed about upcoming sessions.</p>
+        <p>Stay informed about upcoming sessions</p>
         </Link>
       {/* </div> */}
       </motion.div>
             <motion.div
-            whileHover={{ scale: 1.05, boxShadow: "0 0 20px var(--accent)" }}
+            // whileHover={{ scale: 1.05, boxShadow: "0 0 20px var(--accent)" }}
             className="card"
+            style={{ pointerEvents: "none", opacity: 0.2 }}
           >
-      {/* <div className="card"> */}
         <FaBell className="card-icon" style={{ color: "#ff9800" }} />
         <h3>Latest Updates</h3>
-        <p>Check the newest announcements and news.</p>
-      {/* </div> */}
+        <p>Check the latest announcements and news</p>
       </motion.div>
       <motion.div
             whileHover={{ scale: 1.05, boxShadow: "0 0 20px var(--accent)" }}
@@ -246,9 +248,10 @@ useEffect(() => {
         color: "#9ca3af", 
         marginBottom: "45px" 
       }}>
-    Visitors: {visits}
+    {/* Visitors: {visits} */}
   </div>
 
   </div>
+
 );
 }

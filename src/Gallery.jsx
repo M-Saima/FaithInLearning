@@ -10,20 +10,22 @@ const Gallery = () => {
   const [open, setOpen] = useState(false);
   const [index, setIndex] = useState(0);
 
-  const images = [
-    "/gallery/img1.png",
-    "/gallery/img2.png",
-    "/gallery/img3.png",
-    "/gallery/img4.JPG",
-    "/gallery/img8.jpg",
-    "/gallery/img9.jpg",
-    "/gallery/img10.jpg",
-    "/gallery/img11.jpg",
-    "/gallery/img12.jpg",
-    "/gallery/img13.jpg",
-    "/gallery/img14.jpg",
-    "/gallery/img15.jpg",
-  ];
+  // const images = [
+  //   "/gallery/img1.png",
+  //   "/gallery/img2.png",
+  //   "/gallery/img3.png",
+  //   "/gallery/img4.JPG",
+  //   "/gallery/img8.jpg",
+  //   "/gallery/img9.jpg",
+  //   "/gallery/img10.jpg",
+  //   "/gallery/img11.jpg",
+  //   "/gallery/img12.jpg",
+  //   "/gallery/img13.jpg",
+  //   "/gallery/img14.jpg",
+  //   "/gallery/img15.jpg",
+  // ];
+const images = Object.values(import.meta.glob('./assets/images/*.{jpg,jpeg,png,JPG,JPEG,PNG}', { eager: true }))
+  .map((module) => module.default);
 
   return (
     

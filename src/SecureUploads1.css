@@ -1,21 +1,19 @@
-/* ---------- Overall Dark Theme ---------- */
+/* Overall dark theme */
 body {
   background-color: #121212;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #f5f5f5;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
-/* ---------- Container ---------- */
+/* Container */
 .uploads-container {
   display: flex;
   min-height: 100vh;
-  flex-wrap: nowrap;
 }
 
-/* ---------- Sidebar ---------- */
+/* Sidebar */
 .sidebar {
   width: 250px;
   background: #1e1e1e;
@@ -24,10 +22,9 @@ body {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  height: 100vh;
+  height: 100vh; /* Full viewport height */
   overflow-y: auto;
 }
-
 .sidebar::-webkit-scrollbar {
   width: 6px;
 }
@@ -38,7 +35,6 @@ body {
 .sidebar::-webkit-scrollbar-track {
   background: #1e293b;
 }
-
 .sidebar h3 {
   font-size: 20px;
   margin-bottom: 10px;
@@ -61,18 +57,16 @@ body {
   transform: scale(1.05);
 }
 
-/* ---------- Main Content ---------- */
+/* Main Content */
 .main-content {
   flex: 1;
   padding: 30px;
 }
 
-/* Uploads Header */
 .uploads-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
 }
 
 .uploads-header h2 {
@@ -95,7 +89,7 @@ body {
   text-decoration: underline;
 }
 
-/* ---------- Folder Section ---------- */
+/* Folder Section */
 .folder-section {
   margin-top: 30px;
 }
@@ -107,7 +101,7 @@ body {
   padding-bottom: 5px;
 }
 
-/* ---------- Files Grid ---------- */
+/* Files Grid */
 .files-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -149,103 +143,4 @@ body {
   font-size: 16px;
   color: #ddd;
   word-break: break-word;
-}
-
-/* ---------- Responsive Media Queries ---------- */
-@media (max-width: 1024px) {
-  .sidebar {
-    width: 200px;
-  }
-
-  .file-icon {
-    font-size: 45px;
-  }
-
-  .uploads-header h2 {
-    font-size: 24px;
-  }
-
-  .folder-section h3 {
-    font-size: 20px;
-  }
-}
-
-@media (max-width: 768px) {
-  .uploads-container {
-    flex-direction: column;
-  }
-
-  .sidebar {
-    width: 100%;
-    height: auto;
-    flex-direction: row;
-    flex-wrap: wrap;
-    overflow-x: auto;
-    padding: 10px;
-    border-right: none;
-    border-bottom: 2px solid #2e2e2e;
-  }
-
-  .sidebar .folder-link {
-    flex: 1 0 auto;
-    margin-right: 8px;
-  }
-
-  .main-content {
-    padding: 15px;
-  }
-
-  .files-grid {
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    gap: 15px;
-  }
-
-  .file-card {
-    padding: 12px;
-  }
-
-  .file-icon {
-    font-size: 40px;
-  }
-
-  .file-card span {
-    font-size: 14px;
-  }
-}
-
-@media (max-width: 480px) {
-  .sidebar {
-    flex-direction: column;
-    gap: 10px;
-    padding: 10px;
-  }
-
-  .uploads-header h2 {
-    font-size: 20px;
-  }
-
-  .uploads-header p {
-    font-size: 14px;
-  }
-
-  .folder-section h3 {
-    font-size: 18px;
-  }
-
-  .files-grid {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-
-  .file-card {
-    padding: 10px;
-  }
-
-  .file-icon {
-    font-size: 35px;
-  }
-
-  .file-card span {
-    font-size: 13px;
-  }
 }

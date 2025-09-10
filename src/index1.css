@@ -1,8 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-/* ==== Theme variables ==== */
+/* ==== theme variables for easy tuning ==== */
 :root {
   --logo-size: 42px;
   --navbar-padding-vertical: 0.75rem;
@@ -19,16 +18,11 @@
   --fg: #e5e5e5;
   --accent: #00f5d4;
 }
-
 body {
   background-color: var(--bg);
   color: var(--fg);
   font-family: 'Poppins', sans-serif;
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
-
 /* ==== Logo ==== */
 .logo-small {
   width: var(--logo-size);
@@ -36,7 +30,7 @@ body {
   object-fit: contain;
   display: block;
 }
-
+/* Logo + Title */
 .logo {
   width: 50px;
   height: 50px;
@@ -48,25 +42,23 @@ body {
 .logo:hover {
   transform: scale(1.1);
 }
-
 /* ==== Header / Intro ==== */
 .intro-header {
-  padding: 2.5rem 1rem;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
   text-align: center;
+  /* background: rgba(30, 33, 48, 0.95); */
   color: white;
 }
-
 .intro-header h2 {
   font-size: var(--heading-size);
   font-weight: 800;
-  margin-bottom: 0.75rem;
+  margin-bottom: .75rem;
 }
-
 .intro-header p {
   font-size: var(--subheading-size);
   margin: 0 auto;
-  max-width: 100%;
-  line-height: 1.5;
+  max-width: 1000px;
 }
 
 /* ==== Carousel ==== */
@@ -75,23 +67,27 @@ body {
   width: 100%;
   position: relative;
 }
-
-.carousel-wrapper img,
-.carousel-inner img {
+.carousel-wrapper img {
   width: 100%;
-  max-height: 110vh;
+  max-height: 115vh;
   object-fit: cover;
   display: block;
-  border-radius: 0.75rem;
-  transition: transform 0.4s ease;
+  border-radius: .75rem;
+  transition: transform .4s ease;
 }
-
 .carousel-inner {
   position: relative;
   overflow: hidden;
-  border-radius: 0.75rem;
+  border-radius: .75rem;
 }
-
+.carousel-inner img {
+  width: 100%;
+  /* height: var(--carousel-height); */
+  object-fit: cover;
+  display: block;
+  border-radius: .75rem;
+  transition: transform .4s ease;
+}
 .carousel-inner img:hover {
   transform: scale(1.02);
 }
@@ -104,7 +100,7 @@ body {
   background: linear-gradient(135deg,#6366f1,#4f46e5);
   color: white;
   border: none;
-  padding: 0.5rem 0.75rem;
+  padding: .5rem .75rem;
   border-radius: 9999px;
   cursor: pointer;
   font-size: var(--carousel-arrow-size);
@@ -114,25 +110,29 @@ body {
   box-shadow: 0 0 20px rgba(99,102,241,0.6);
   backdrop-filter: blur(6px);
 }
-.carousel-arrow.left { left: 1rem; }
-.carousel-arrow.right { right: 1rem; }
+.carousel-arrow.left {
+  left: 1rem;
+}
+.carousel-arrow.right {
+  right: 1rem;
+}
 
-/* Indicators */
+/* Indicators (dots) */
 .carousel-indicators {
   position: absolute;
-  bottom: 0.75rem;
+  bottom: .75rem;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-  gap: 0.5rem;
+  gap: .5rem;
 }
 .carousel-indicators .dot {
-  width: 0.75rem;
-  height: 0.75rem;
+  width: .75rem;
+  height: .75rem;
   border-radius: 50%;
   background: #4b5563;
   cursor: pointer;
-  transition: transform 0.2s, background 0.2s;
+  transition: transform .2s, background .2s;
 }
 .carousel-indicators .dot.active {
   background: #6366f1;
@@ -148,19 +148,16 @@ body {
   margin: 50px auto;
   max-width: 1200px;
 }
-
 .card {
   background-color: #1e293b;
   border-radius: 16px;
-  padding: 2rem 1.5rem;
-  width: 100%;
-  max-width: 250px;
+  padding: 30px 20px;
+  width: 250px;
   text-align: center;
   color: white;
   box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 .card:hover {
   transform: translateY(-8px);
   box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.5);
@@ -173,91 +170,11 @@ body {
 }
 
 .card h3 {
-  font-size: 1.25rem;
+  font-size: 20px;
   margin: 10px 0;
 }
 
 .card p {
-  font-size: 0.875rem;
+  font-size: 14px;
   color: #d1d5db;
-  line-height: 1.4;
-}
-
-/* ==== Responsive Media Queries ==== */
-@media (max-width: 1024px) {
-  .carousel-wrapper img,
-  .carousel-inner img {
-    max-height: 60vh;
-  }
-
-  .cards-container {
-    gap: 20px;
-  }
-}
-
-@media (max-width: 768px) {
-  .intro-header h2 {
-    font-size: 2rem;
-  }
-
-  .intro-header p {
-    font-size: 1rem;
-  }
-
-  .carousel-arrow {
-    font-size: 1.5rem;
-  }
-
-  .cards-container {
-    gap: 15px;
-  }
-
-  .card {
-    max-width: 45%;
-    padding: 1.5rem 1rem;
-  }
-
-  .card h3 {
-    font-size: 1.1rem;
-  }
-
-  .card p {
-    font-size: 0.8rem;
-  }
-
-  .card-icon {
-    font-size: 40px;
-  }
-}
-
-@media (max-width: 480px) {
-  .intro-header h2 {
-    font-size: 1.5rem;
-  }
-
-  .intro-header p {
-    font-size: 0.9rem;
-  }
-
-  .cards-container {
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .card {
-    max-width: 90%;
-    padding: 1rem 0.75rem;
-  }
-
-  .card h3 {
-    font-size: 1rem;
-  }
-
-  .card p {
-    font-size: 0.75rem;
-  }
-
-  .card-icon {
-    font-size: 35px;
-  }
 }

@@ -1,16 +1,14 @@
-/* ---------- Gallery Page ---------- */
 .gallery-page {
-  min-height: 100vh;
+  padding: 20px;
+  /* background: #0f172a; */
   color: #f8fafc;
+  min-height: 100vh;
   text-align: center;
   margin: 0;
-  padding: 0 10px;
+  padding: 0;
   font-family: "Segoe UI", sans-serif;
-  box-sizing: border-box;
-  background-color: #0f172a; /* optional background */
 }
 
-/* ---------- Gallery Header ---------- */
 .gallery-header {
   margin-bottom: 30px;
 }
@@ -21,15 +19,13 @@
   margin-top: 10px;
 }
 
-/* ---------- Gallery Grid ---------- */
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 15px;
   padding: 0 10px;
 }
 
-/* ---------- Gallery Items ---------- */
 .gallery-item {
   overflow: hidden;
   border-radius: 15px;
@@ -39,11 +35,11 @@
 
 .gallery-item img {
   width: 100%;
-  aspect-ratio: 4/3;
+  height: 200px;
   object-fit: cover;
   display: block;
   filter: brightness(90%);
-  transition: filter 0.3s ease, transform 0.3s ease;
+  transition: filter 0.3s ease;
 }
 
 .gallery-item:hover {
@@ -54,21 +50,9 @@
 .gallery-item:hover img {
   filter: brightness(100%);
 }
-
-/* ---------- Responsive Media Queries ---------- */
-@media (max-width: 1024px) {
-  .gallery-grid {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  }
-
-  .gallery-item img {
-    height: auto;
-  }
-}
-
 @media (max-width: 768px) {
   .gallery-page {
-    padding: 5px;
+    padding: 10px;
   }
 
   .gallery-icon {
@@ -83,7 +67,6 @@
 @media (max-width: 480px) {
   .gallery-grid {
     grid-template-columns: 1fr;
-    gap: 10px;
   }
 
   .gallery-item img {
@@ -94,4 +77,9 @@
   .gallery-icon {
     font-size: 1.8rem;
   }
+}
+.gallery-item img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
 }

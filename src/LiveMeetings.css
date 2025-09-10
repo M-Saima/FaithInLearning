@@ -1,22 +1,28 @@
+/* ---------- Live Meetings Page ---------- */
 .live-meetings-page {
   background-color: #121212;
   min-height: 100vh;
   color: #fff;
   font-family: "Segoe UI", sans-serif;
+  box-sizing: border-box;
+  padding: 0 10px;
 }
 
+/* ---------- Content Container ---------- */
 .content-container {
   max-width: 1100px;
-  /* margin: 80px auto; */
+  margin: 0 auto;
   padding: 20px;
 }
 
+/* ---------- Page Title & Subtitle ---------- */
 .page-title {
   font-size: 2.5rem;
   display: flex;
   align-items: center;
   gap: 10px;
   color: #4e9eff;
+  flex-wrap: wrap;
 }
 
 .page-subtitle {
@@ -25,12 +31,14 @@
   color: #aaa;
 }
 
+/* ---------- Meetings Grid ---------- */
 .meetings-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 20px;
 }
 
+/* ---------- Meeting Card ---------- */
 .meeting-card {
   background-color: #1e1e1e;
   padding: 20px;
@@ -63,9 +71,11 @@
   font-size: 0.9rem;
 }
 
+/* ---------- Status Styles ---------- */
 .status.live {
   color: #00ff7f;
   font-weight: bold;
+  animation: pulse 1s infinite;
 }
 
 .status.upcoming {
@@ -73,6 +83,7 @@
   font-weight: bold;
 }
 
+/* ---------- Join Button ---------- */
 .join-btn {
   display: block;
   text-align: center;
@@ -87,14 +98,100 @@
 .join-btn:hover {
   background: #357ad8;
 }
-.status.live {
-  color: #00ff7f;
-  font-weight: bold;
-  animation: pulse 1s infinite;
-}
 
+/* ---------- Pulse Animation ---------- */
 @keyframes pulse {
   0% { text-shadow: 0 0 5px #00ff7f; }
   50% { text-shadow: 0 0 15px #00ff7f; }
   100% { text-shadow: 0 0 5px #00ff7f; }
+}
+
+/* ---------- Responsive Media Queries ---------- */
+@media (max-width: 1024px) {
+  .page-title {
+    font-size: 2rem;
+  }
+
+  .page-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .meeting-card {
+    padding: 18px;
+  }
+
+  .meeting-card h2 {
+    font-size: 1.3rem;
+  }
+
+  .meeting-desc {
+    font-size: 0.95rem;
+  }
+
+  .meeting-info {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-title {
+    font-size: 1.8rem;
+  }
+
+  .page-subtitle {
+    font-size: 1rem;
+  }
+
+  .meeting-card {
+    padding: 15px;
+  }
+
+  .meeting-card h2 {
+    font-size: 1.2rem;
+  }
+
+  .meeting-desc {
+    font-size: 0.9rem;
+  }
+
+  .meeting-info {
+    font-size: 0.8rem;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .join-btn {
+    padding: 8px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-title {
+    font-size: 1.5rem;
+  }
+
+  .page-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .meeting-card {
+    padding: 12px;
+  }
+
+  .meeting-card h2 {
+    font-size: 1.1rem;
+  }
+
+  .meeting-desc {
+    font-size: 0.85rem;
+  }
+
+  .meeting-info {
+    font-size: 0.75rem;
+  }
+
+  .join-btn {
+    padding: 6px 10px;
+    font-size: 0.85rem;
+  }
 }

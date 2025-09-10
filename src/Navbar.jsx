@@ -1,6 +1,6 @@
 // Navbar.jsx
 import { Link } from "react-router-dom";
-import logo from "./assets/Education.png";
+import logo from "./assets/logo.jpeg";
 import "./Navbar.css";
 import { FaFilePdf, FaFileWord, FaHome } from "react-icons/fa";
 export default function Navbar() {
@@ -19,6 +19,7 @@ export default function Navbar() {
         <li><Link to="/live-meetings">Meetings</Link></li>
         <li><Link to="/forms">Forms</Link></li>
         <li><Link to="/gallery">Gallery</Link></li>
+        <li><Link to="/success-stories">Success Stories</Link></li>
         {/* <li><Link to="/uploads">Secure Uploads</Link></li> */}
       </ul>
     </nav>

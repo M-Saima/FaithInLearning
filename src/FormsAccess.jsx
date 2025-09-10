@@ -8,6 +8,11 @@ export default function FormsAccess() {
 
   useEffect(() => {
     setForms([
+       {
+        title: "Registration Form for  2026-27 session",
+        url: "https://forms.gle/S81tyNUQ2qKJAjMP9",
+        description: "Register to become a part of our library network and access all our resources and programs."
+      },
       {
         title: "Women's Volunteer Teaching Drive",
         url: "https://forms.gle/38EPm3NuToE6hNq67",

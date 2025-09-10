@@ -1,0 +1,94 @@
+:root {
+  --bg: #0f0f0f;
+  --fg: #ffffff;
+  --accent: #00d8ff;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg);
+  color: var(--fg);
+  overflow-x: hidden; /* Remove horizontal scrollbar */
+}
+
+.container {
+margin: 0;
+padding: 0;
+  min-height: 100vh;
+  /* margin: 2rem; */
+  box-sizing: border-box;
+  overflow-y: auto; /* Only vertical scrollbar when needed */
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--accent);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-left: 2rem;
+}
+
+.card {
+  background-color: #1a1a1a;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.card h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.card .story {
+  margin-top: 0.5rem;
+  color: #b0b0b0;
+}
+
+.card .description {
+  margin-top: 1rem;
+  color: #ddd;
+  font-size: 0.95rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+  .card h2 {
+    font-size: 1.125rem;
+  }
+  .card .story,
+  .card .description {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.75rem;
+  }
+  .card {
+    padding: 1rem;
+  }
+  .card h2 {
+    font-size: 1rem;
+  }
+  .card .story,
+  .card .description {
+    font-size: 0.85rem;
+  }
+}
